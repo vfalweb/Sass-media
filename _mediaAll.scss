@@ -1,0 +1,80 @@
+.container {
+    margin: 0 auto 20px;
+    padding: 0 15px;
+    width: 320px;
+    background-color: blueviolet;
+    height: 100px;
+    &.container-white {
+        background: #fff;
+        padding: 20px 15px;
+    }
+}
+
+.row {
+    margin: 0 -15px;
+    &:after,
+    &:before {
+        clear: both;
+        content: ' ';
+        display: table;
+    }
+}
+
+@for $i from 1 through 12 {
+    .col-xs-#{$i} {
+        float: left;
+        padding: 0 15px;
+        width: (100% / 12) * $i;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0;
+        width: 750px;
+    }
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            float: left;
+            min-height: 1px;
+            padding: 0 15px;
+            width: (100% / 12) * $i;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            float: left;
+            min-height: 1px;
+            padding: 0 15px;
+            width: (100% / 12) * $i;
+        }
+    }
+    @for $i from 1 through 12 {
+        .col-md-pull-#{$i} {
+            margin-right: (100% / 12) * $i;
+        }
+        .col-md-push-#{$i} {
+            margin-left: (100% / 12) * $i;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} {
+            float: left;
+            min-height: 1px;
+            padding-left: 15px;
+            width: (100% / 12) * $i;
+        }
+    }
+}
